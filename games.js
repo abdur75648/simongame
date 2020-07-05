@@ -61,7 +61,7 @@ function animate(inp) {
 
 // First Key Press
 var started_to_toggle = false;
-document.addEventListener("keypress", function () {
+document.addEventListener("click", function () {
     if (started_to_toggle == false) {
         nextSequence();
         $("h3").removeClass("score");
@@ -73,9 +73,7 @@ document.addEventListener("keypress", function () {
 
 function checkAnswer(currentLabel){
     if (userClickedPattern[currentLabel]==gamePattern[currentLabel]){
-        console.log("Right Answer");
         if (userClickedPattern.length==gamePattern.length){
-            console.log("Moving To Next Level. Be ready");
             setTimeout(function () {
                 nextSequence();
               }, 1000);
@@ -89,13 +87,13 @@ function checkAnswer(currentLabel){
         setTimeout(function () {
             $("body").removeClass("game-over");
             // alert("Your Score : " + level)
-            $("h1").text("Game Over! Press Any Key to Restart")
+            $("h1").text("Game Over! Touch Anywhere to Restart")
             startOver();}, 300);
     }
 }
 
 function startOver(){
-    document.addEventListener("keypress", function () {
+    document.addEventListener("click", function () {
         location.reload();
     })
 }
